@@ -46,7 +46,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 
     //3. Check which one is the winner
 
-    if (finalScores[activePlayer] >= 20) {
+    if (finalScores[activePlayer] >= 100) {
       document.querySelector("#name-" + activePlayer).textContent = "Winner!";
       document.querySelector(".dice").style.display = "none";
       document
