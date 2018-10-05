@@ -49,9 +49,9 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 
 
     //3. Update the round scoreif the rolled dice is not equal to 1
-    if (dice !== 1 || dice === 1) {
+    if (dice !== 1 && dice2 !== 1) {
       //Add score
-      roundScore += dice;
+      roundScore += dice + dice2;
       document.querySelector(
         "#current-" + activePlayer
       ).textContent = roundScore;
