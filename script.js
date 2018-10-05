@@ -4,10 +4,7 @@ var finalScores, roundScore, activePlayer, gamePlaying, twoSix, winningScore;
 //gamePlaying is the state variable which decide to no play when a player is winner
 gamePlaying = true;
 
-
-
 init();
-
 
 /*********************DOM manipulation********************/
 
@@ -19,19 +16,20 @@ init();
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
 
-  if (gamePlaying) {
+  if (gamePlaying && winningScore !== undefined) {
+
 
     //1. generate two random numbers
     var dice = Math.floor(Math.random() * 6 + 1);
-    // var dice2 = Math.floor(Math.random() * 6 + 1);
+    var dice2 = Math.floor(Math.random() * 6 + 1);
     //2.display the result
     var diceDOM = document.querySelector(".dice");
     diceDOM.style.display = "block";
     diceDOM.src = "dice-" + dice + ".png";
     //display the result of second dice
-    // var diceDOM2 = document.querySelector(".dice2");
-    // diceDOM2.style.display = "block";
-    // diceDOM2.src = "dice-" + dice2 + ".png";
+    var diceDOM2 = document.querySelector(".dice2");
+    diceDOM2.style.display = "block";
+    diceDOM2.src = "dice-" + dice2 + ".png";
 
 
     //Check if users rolls two 6s in one row which remove the whole score 
@@ -51,7 +49,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 
 
     //3. Update the round scoreif the rolled dice is not equal to 1
-    if (dice !== 1) {
+    if (dice !== 1 || dice === 1) {
       //Add score
       roundScore += dice;
       document.querySelector(
@@ -66,16 +64,17 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 
 ///////////////Creating a functionality for Set The Winning Number button//////////////////
 document.querySelector('.btn-set').addEventListener('click', setWinNumber);
-document.getElementById('input').value = 0;
+// document.getElementById('input').value = 0;
 
 function setWinNumber() {
   winningScore = document.getElementById('input').value;
-  console.log(winningScore);
-  if (winningScore >= 0) {
+
+  if (winningScore > 0) {
     gamePlaying = true;
   } else {
     gamePlaying = false;
   }
+  console.log(winningScore);
 
   init();
 
@@ -151,11 +150,10 @@ finalScores
 */
   twoSix = 0;
   activePlayer = 0;
-
+  document.querySelector('#input').value = 0;
   document.querySelector(".dice").style.display = "none";
   //second dice
-  // document.querySelector(".dice2").style.display = "none";
-  // document.getElementById('input').value = 0;
+  document.querySelector(".dice2").style.display = "none";
 
   ////////The original value of scores, both current and final scores
   document.getElementById("score-0").textContent = "0";
