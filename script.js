@@ -76,7 +76,7 @@ function setWinNumber() {
   }
   console.log(winningScore);
 
-  init();
+
 
 }
 
@@ -96,7 +96,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
       document.querySelector("#name-" + activePlayer).textContent = "Winner!";
       document.querySelector(".dice").style.display = "none";
       //second dice
-      // document.querySelector(".dice2").style.display = "none";
+      document.querySelector(".dice2").style.display = "none";
       document
         .querySelector(".player-" + activePlayer + "-panel")
         .classList.add("winner");
