@@ -8,10 +8,6 @@ init();
 
 /*********************DOM manipulation********************/
 
-
-
-
-
 /////////Rolling dice function//////////////////
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
@@ -31,7 +27,6 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     diceDOM2.style.display = "block";
     diceDOM2.src = "dice-" + dice2 + ".png";
 
-
     //Check if users rolls two 6s in one row which remove the whole score 
 
     if (dice === 6) {
@@ -45,7 +40,6 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
       }
 
     }
-
 
 
     //3. Update the round scoreif the rolled dice is not equal to 1
@@ -75,8 +69,6 @@ function setWinNumber() {
     gamePlaying = false;
   }
   console.log(winningScore);
-
-
 
 }
 
@@ -136,9 +128,6 @@ function nextPlayer() {
 ////Creating a functionality for New Game button//////////////////
 
 document.querySelector(".btn-new").addEventListener("click", init);
-
-
-
 
 ////This functions turns back everything to zero level///////
 function init() {
